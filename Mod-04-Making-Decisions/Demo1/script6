@@ -1,0 +1,83 @@
+"use strict";
+
+
+let studentName = "Dana";
+let major = "csci";   // in reality, this comes from the UI
+let degreeTrack = "N";
+
+
+let degreeTrackName;
+let majorName;
+let advisingLocation;
+
+
+if (degreeTrack == "U") {
+    degreeTrackName = "Undergraduate";
+}
+else if (degreeTrack == "G") {
+    degreeTrackName = "Graduate";
+}
+else {
+    degreeTrackName = "<unknown>";
+}
+
+
+if (major == "BIOL") {
+    majorName = "Biology";
+}
+else if (major == "CSCI") {
+    majorName = "Computer Science";
+}
+else if (major == "ENG") {
+    majorName = "English";
+}
+else if (major == "HIST") {
+    majorName = "History";
+}
+else if (major == "MKT") {
+    majorName = "Marketing";
+}
+else {
+    majorName = "<unknown>";
+}
+
+
+if (major == "BIOL" && degreeTrack == "U") {
+    advisingLocation = "Science Bldg, Room 310";
+}
+else if (major == "BIOL" && degreeTrack == "G") {
+    advisingLocation = "Science Bldg, Room 334";
+}
+else if (major == "CSCI" && degreeTrack == "U") {
+    advisingLocation = "Sheppard Hall, Room 410";
+}
+else if (major == "CSCI" && degreeTrack == "G") {
+    advisingLocation = "Sheppard Hall, Room 314";
+}
+else if (major == "ENG" && degreeTrack == "U") {
+    advisingLocation = "Kerr Hall, Room 201";
+}
+else if (major == "ENG" && degreeTrack == "G") {
+    advisingLocation = "Kerr Hall, Room 202";
+}
+else if (major == "HIST" && degreeTrack == "U") {
+    advisingLocation = "Alva Hall, Room 114";
+}
+else if (major == "HIST" && degreeTrack == "G") {
+    advisingLocation = "Alva Bldg, Room 115";
+}
+else if (major == "MKT" && degreeTrack == "U") {
+    advisingLocation = "Westly Hall, Room 310";
+}
+else if (major == "MKT" && degreeTrack == "G") {
+    advisingLocation = "Westly, Room 202";
+}
+else  {
+    advisingLocation = "Advising location not found."
+}
+
+
+console.log("Student: " + studentName);
+console.log("Degree Track: " + degreeTrackName + " (" + degreeTrack + ")");
+console.log("Major: " + majorName + " (" + major + ")");
+console.log("Advising Location: " + advisingLocation);
