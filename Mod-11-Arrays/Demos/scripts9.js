@@ -1,5 +1,4 @@
 "use strict";
-
 let data = [{
         CourseId: "19SUM100",
         Title: "Introduction to HTML/CSS/Git",
@@ -42,44 +41,28 @@ let data = [{
     }
 ];
 
-// look for 19SUM300
-let courseIdToSearchFor = "19SUM300";
-// Once way to find this to write your own loop and do all of
-// the comparisons youself
-/*
-for(let i = 0; i < data.length; i++) {
-    if (data[i].CourseId == courseIdToSearchFor) {
-        console.log(data[i].Title);
-        break;
-    }
-}
-*/
+let instructorToFind = "Lynn";
 
-let foundCourse = data.find(arrayElement => arrayElement.CourseId == courseIdToSearchFor);
+// Finds the FIRST course Lynn teaches  (uses find())
+let foundCourse = data.find(arrayElement => arrayElement.Instructor == instructorToFind);
+
+// because find returns the one item (or maybe null) you don't need a loop - just check for null
 if (foundCourse != null) {
-   console.log("found course id: " + courseIdToSearchFor + " --- " + foundCourse.Title);
+   console.log("found instructor: " + instructorToFind + " --- " + foundCourse.Title);
 }
 else {
-    console.log(courseIdToSearchFor + " was not found")
+    console.log(instructorToFind + " was not found");
 }
 
+// Finds ALL courses Lynn teaches (uses filter())
+let foundCourses = data.filter(arrayElement => arrayElement.Instructor == instructorToFind);
 
-let instructorToLookFor = "Lynn";
-foundCourse = data.find(arrayElement => arrayElement.Instructor == instructorToLookFor);
-if (foundCourse != null) {
-   console.log("found instructor: " + instructorToLookFor + " --- " + foundCourse.Title);
-}
-else {
-    console.log(instructorToLookFor + " was not found")
+// because filter returns an array, you need a loop to examine each one of them
+for (let i = 0; i < foundCourses.length; i++) {
+    console.log(foundCourses[i].Title);
 }
 
-
-let minPriceOfCourse = 75;
-let maxPriceOfCourse = 100;   // real world - this comes from the user )ex: in a text field)
-foundCourse = data.find(arrayElement => arrayElement.Fee >= minPriceOfCourse && arrayElement.Fee <= maxPriceOfCourse);
-if (foundCourse != null) {
-   console.log("Found Course between  $" + minPriceOfCourse.toFixed(2) + " and " + maxPriceOfCourse.toFixed(2) +  " --- " + foundCourse.Title);
-}
-else {
-    console.log("Courses between  $" + minPriceOfCourse.toFixed(2) + " and " + maxPriceOfCourse.toFixed(2) + " was not found")
-}
+// fancy new alternative to looping thru an array without writing a for and using subscripts
+foundCourses.forEach(element => {
+    console.log(element.Title);
+});
